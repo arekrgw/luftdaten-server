@@ -25,7 +25,21 @@ else{
           `${argv.path}/air_condition_${id}`,
           `${req.body.sensordatavalues[0].value}\n${req.body.sensordatavalues[1].value}`,
           err => {
-            console.log("file saved");
+            console.log("Air condition saved");
+          }
+        );
+        fs.writeFile(
+          `${argv.path}/temp_and_humidity_${id}`,
+          `${req.body.sensordatavalues[2].value}\n${req.body.sensordatavalues[4].value}`,
+          err => {
+            console.log("Temperature and humidity saved");
+          }
+        );
+        fs.writeFile(
+          `${argv.path}/pressure_${id}`,
+          `${req.body.sensordatavalues[3].value}`,
+          err => {
+            console.log("Pressure saved");
           }
         );
     })
