@@ -4,14 +4,11 @@
   "description": "Server for collecting data from Luftdaten sensor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node PORT=5125 index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arkadiusz Pawlak",
   "license": "ISC",
-  "devDependencies": {
-    "dotenv": "^8.2.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "express": "^4.17.1",
     "yargs": "^15.1.0"
