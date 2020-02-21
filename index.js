@@ -22,7 +22,7 @@ else{
         console.log(req.body)
         //Save air condition
         fs.writeFile(
-          `${path}/air_condition_${id}`,
+          `${argv.path}/air_condition_${id}`,
           `${req.body.sensordatavalues[0].value}\n${req.body.sensordatavalues[1].value}`,
           err => {
             console.log("file saved");
