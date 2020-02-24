@@ -24,16 +24,20 @@ else{
         const {sensordatavalues: sensData} = req.body.sensordatavalues ? req.body : []
 
         const airCondition = sensData
-          .filter((val) => val.value_type == "P2" && val.value || val.value_type=="P1" && val.value)
+          .filter((val) => val.value_type == "SDS_P2" && val.value || val.value_type=="SDS_P1" && val.value)
           .map((val) => val.value)
 
         const tempAndOrHum = sensData
-          .filter((val) => val.value_type == "temperature" && val.value || val.value_type == "humidity" && val.value)
-          .map(val=>val.value)
+          .filter(
+            val =>
+              (val.value_type == "BME280_temperature" && val.value) ||
+              (val.value_type == "BME280_humidity" && val.value)
+          )
+          .map(val => val.value);
 
         const pressure = sensData
-          .filter((val) => val.value_type == "pressure")
-          .map(val=>val.value)
+          .filter(val => val.value_type == "BME280_pressure")
+          .map(val => val.value);
 
         airCondition.length != 0 && write(`${argv.path}/air_condition_${id}.txt`, airCondition.join('\n'), "Air Condition")
         tempAndOrHum.length != 0 && write(`${argv.path}/temp_and_humidity_${id}.txt`, tempAndOrHum.join('\n'), "Temperature and/or humidity")
