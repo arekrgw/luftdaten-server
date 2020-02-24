@@ -4,7 +4,8 @@
   "description": "Server for collecting data from Luftdaten sensor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js --port=5125 --path=\"./\""
   },
   "author": "Arkadiusz Pawlak",
   "license": "ISC",

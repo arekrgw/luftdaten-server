@@ -37,7 +37,12 @@ else{
 
         airCondition.length != 0 && write(`${argv.path}/air_condition_${id}.txt`, airCondition.join('\n'), "Air Condition")
         tempAndOrHum.length != 0 && write(`${argv.path}/temp_and_humidity_${id}.txt`, tempAndOrHum.join('\n'), "Temperature and/or humidity")
-        pressure.length != 0 && write(`${argv.path}/pressure_${id}.txt`, pressure.join('\n'), "Pressure")
+        pressure.length != 0 &&
+          write(
+            `${argv.path}/pressure_${id}.txt`,
+            Math.round(parseInt(pressure[0], 10) + Number.EPSILON) / 100,
+            "Pressure"
+          );
         
     })
     
