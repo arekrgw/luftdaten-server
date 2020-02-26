@@ -44,7 +44,7 @@ else{
         pressure.length != 0 &&
           write(
             `${argv.path}/pressure_${id}.txt`,
-            Math.round(parseInt(pressure[0], 10) + Number.EPSILON) / 100,
+            (Math.round(parseInt(pressure[0], 10) + Number.EPSILON) / 100)+198 * 0.113,
             "Pressure"
           );
         
